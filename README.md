@@ -226,23 +226,23 @@ ags is maintained in the open thanks to its sponsors. [Become a sponsor](https:/
 
 ### Founding Sponsors
 
-<p align="center"><!-- sponsors-founding --><!-- sponsors-founding --></p>
+<p align="center"><!-- sponsors-founding --><sub>Become the first <a href="https://github.com/sponsors/romainsimon">Founding Sponsor</a>.</sub><!-- sponsors-founding --></p>
 
 ### Premier Sponsors
 
-<p align="center"><!-- sponsors-premier --><!-- sponsors-premier --></p>
+<p align="center"><!-- sponsors-premier --><sub>Become the first <a href="https://github.com/sponsors/romainsimon">Premier Sponsor</a>.</sub><!-- sponsors-premier --></p>
 
 ### Sponsors
 
-<p align="center"><!-- sponsors-sponsor --><!-- sponsors-sponsor --></p>
+<p align="center"><!-- sponsors-sponsor --><sub>Become the first <a href="https://github.com/sponsors/romainsimon">Sponsor</a>.</sub><!-- sponsors-sponsor --></p>
 
 ### Backers
 
-<p align="center"><!-- sponsors-backer --><!-- sponsors-backer --></p>
+<p align="center"><!-- sponsors-backer --><sub>Become the first <a href="https://github.com/sponsors/romainsimon">Backer</a>.</sub><!-- sponsors-backer --></p>
 
 ### Supporters
 
-<p align="center"><!-- sponsors-supporter --><!-- sponsors-supporter --></p>
+<p align="center"><!-- sponsors-supporter --><sub>Become the first <a href="https://github.com/sponsors/romainsimon">Supporter</a>.</sub><!-- sponsors-supporter --></p>
 
 ---
 
