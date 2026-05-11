@@ -1,0 +1,59 @@
+name: Update sponsors in README
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daily at 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sponsors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Sponsors tier ($100+)
+        uses: JamesIves/github-sponsors-readme-action@v1
+        with:
+          token: ${{ secrets.SPONSORS_PAT }}
+          file: 'README.md'
+          marker: 'sponsors-premium'
+          minimum: 10000
+          template: '<a href="https://github.com/{{{ login }}}" target="_blank" rel="noopener"><img src="{{{ avatarUrl }}}" width="120" alt="{{{ login }}}" /></a>&nbsp;&nbsp;'
+          fallback: '<sub>Become the first <a href="https://github.com/sponsors/romainsimon">Sponsor</a>.</sub>'
+
+      - name: Update Backers tier ($25-$99)
+        uses: JamesIves/github-sponsors-readme-action@v1
+        with:
+          token: ${{ secrets.SPONSORS_PAT }}
+          file: 'README.md'
+          marker: 'sponsors-backers'
+          minimum: 2500
+          maximum: 9999
+          template: '<a href="https://github.com/{{{ login }}}" target="_blank" rel="noopener"><img src="{{{ avatarUrl }}}" width="60" alt="{{{ login }}}" /></a>&nbsp;'
+          fallback: '<sub>Become the first <a href="https://github.com/sponsors/romainsimon">Backer</a>.</sub>'
+
+      - name: Update Supporters tier ($5-$24)
+        uses: JamesIves/github-sponsors-readme-action@v1
+        with:
+          token: ${{ secrets.SPONSORS_PAT }}
+          file: 'README.md'
+          marker: 'sponsors-supporters'
+          minimum: 500
+          maximum: 2499
+          template: '<a href="https://github.com/{{{ login }}}" target="_blank" rel="noopener"><img src="{{{ avatarUrl }}}" width="40" alt="{{{ login }}}" /></a>&nbsp;'
+          fallback: '<sub>Become the first <a href="https://github.com/sponsors/romainsimon">Supporter</a>.</sub>'
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --quiet -- README.md; then
+            echo "No changes to README.md."
+            exit 0
+          fi
+          git add README.md
+          git commit -m "chore(sponsors): refresh README"
+          git push

@@ -220,6 +220,24 @@ For creating and publishing your own skills, see the [skill creation guide](http
 
 ---
 
+## Sponsors
+
+ags is maintained in the open thanks to its sponsors. [Become a sponsor](https://github.com/sponsors/romainsimon).
+
+### Sponsors
+
+<p align="center"><!-- sponsors-premium --><!-- sponsors-premium --></p>
+
+### Backers
+
+<p align="center"><!-- sponsors-backers --><!-- sponsors-backers --></p>
+
+### Supporters
+
+<p align="center"><!-- sponsors-supporters --><!-- sponsors-supporters --></p>
+
+---
+
 ## Learn More
 
 - [Browse 100,000+ skills](https://agentskill.sh)
