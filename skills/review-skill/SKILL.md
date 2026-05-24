@@ -10,6 +10,7 @@ description: >
 metadata:
   author: agentskill-sh
   version: "1.0"
+license: MIT
 includes:
   - references/**
 ---
