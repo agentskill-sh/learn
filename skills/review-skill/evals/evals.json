@@ -1,0 +1,60 @@
+{
+  "skill_name": "review-skill",
+  "version": "1.0",
+  "evals": [
+    {
+      "id": "eval-001",
+      "name": "Triggers on explicit review request",
+      "description": "The skill should activate when the user explicitly asks for a review.",
+      "prompt": "Please review this code for me: function add(a, b) { return a + b; }",
+      "expected": {
+        "should_trigger": true,
+        "scores_all_dimensions": true,
+        "dimensions": [
+          "correctness",
+          "readability",
+          "maintainability",
+          "performance",
+          "security",
+          "testing",
+          "documentation",
+          "error_handling",
+          "naming",
+          "structure"
+        ]
+      }
+    },
+    {
+      "id": "eval-002",
+      "name": "Scores all 10 dimensions on review",
+      "description": "When triggered, the skill must produce scores for all 10 review dimensions.",
+      "prompt": "Can you do a thorough review of the following pull request? The PR refactors the authentication middleware to use JWT tokens.",
+      "expected": {
+        "should_trigger": true,
+        "scores_all_dimensions": true,
+        "dimensions": [
+          "correctness",
+          "readability",
+          "maintainability",
+          "performance",
+          "security",
+          "testing",
+          "documentation",
+          "error_handling",
+          "naming",
+          "structure"
+        ]
+      }
+    },
+    {
+      "id": "eval-003",
+      "name": "Does not trigger on unrelated tasks",
+      "description": "The skill should NOT activate for tasks unrelated to code review.",
+      "prompt": "What's the weather like in Tokyo today?",
+      "expected": {
+        "should_trigger": false,
+        "scores_all_dimensions": false
+      }
+    }
+  ]
+}
