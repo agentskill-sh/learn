@@ -13,6 +13,11 @@ interface VersionEntry {
   contentSha: string
 }
 
+// GET /agent/skills/version returns an object keyed by slug, not an array.
+interface VersionResponse {
+  versions: Record<string, VersionEntry>
+}
+
 export async function updateCommand(args: string[]): Promise<void> {
   const jsonFlag = args.includes('--json')
 
@@ -31,10 +36,10 @@ export async function updateCommand(args: string[]): Promise<void> {
   const s = p.spinner()
   s.start('Checking for updates...')
 
-  let remote: VersionEntry[]
+  let remote: VersionResponse
   try {
     const slugs = installed.map((sk) => sk.slug).join(',')
-    remote = await apiFetch<VersionEntry[]>(
+    remote = await apiFetch<VersionResponse>(
       `/agent/skills/version?slugs=${encodeURIComponent(slugs)}`,
     )
   } catch (err) {
@@ -42,7 +47,9 @@ export async function updateCommand(args: string[]): Promise<void> {
     throw err
   }
 
-  const remoteMap = new Map(remote.map((r) => [r.slug, r.contentSha]))
+  const remoteMap = new Map(
+    Object.entries(remote.versions).map(([slug, v]) => [slug, v.contentSha]),
+  )
   const outdated = installed.filter(
     (sk) => remoteMap.has(sk.slug) && remoteMap.get(sk.slug) !== sk.contentSha,
   )
