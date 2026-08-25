@@ -38,9 +38,10 @@ ags setup
 ```bash
 /plugin marketplace add https://agentskill.sh/marketplace.json
 /plugin install learn@agentskill-sh
+/plugin install hol-guard@agentskill-sh
 ```
 
-Note: the plugin marketplace only installs the `/learn` skill. Use `npx @agentskill.sh/cli setup` to get all skills.
+The plugin marketplace includes `/learn` plus directly installable plugins such as `hol-guard`. Use `npx @agentskill.sh/cli setup` to get all skills.
 
 </details>
 
